@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+    <!-- EvolutionX customization sources -->
+    <project name="Evolution-X/frameworks_base" path="frameworks/base-evox" remote="evox" revision="udc" />
+    <project name="Evolution-X/packages_apps_EvoLauncher" path="packages/apps/EvoLauncher" remote="evox" revision="udc" />
+    <project name="Evolution-X/packages_apps_EvoxWalls" path="packages/apps/EvoxWalls" remote="evox" revision="udc" />
+    <project name="Evolution-X/packages_apps_Settings" path="packages/apps/Settings-evox" remote="evox" revision="udc" />
+    <project name="Evolution-X/packages_overlays_Themes" path="packages/overlays/evox" remote="evox" revision="udc" />
+</manifest>

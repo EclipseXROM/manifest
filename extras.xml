@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+    <!-- Docker / container support -->
+    <project name="moby/moby" path="external/docker/moby" remote="docker" revision="master" />
+    <project name="docker/compose" path="external/docker/compose" remote="docker" revision="main" />
+
+    <!-- Placeholder for EclipseX-specific forks (launcher, theme packs, tooling) -->
+    <project name="EclipseXROM/EclipseXLauncher" path="packages/apps/EclipseXLauncher" remote="eclipsex" revision="main" />
+    <project name="EclipseXROM/EclipseXThemePacks" path="packages/overlays/EclipseXThemes" remote="eclipsex" revision="main" />
+    <project name="EclipseXROM/EclipseXDockerUI" path="packages/apps/EclipseXDocker" remote="eclipsex" revision="main" />
+</manifest>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+    <!-- Remotes -->
+    <remote name="aosp" fetch="https://android.googlesource.com/" review="https://android-review.googlesource.com/" />
+    <remote name="graphene" fetch="https://github.com/GrapheneOS/" />
+    <remote name="copperhead" fetch="https://github.com/CopperheadOS/" />
+    <remote name="evox" fetch="https://github.com/Evolution-X/" />
+    <remote name="docker" fetch="https://github.com/" />
+    <remote name="eclipsex" fetch="https://github.com/EclipseXROM/" />
+
+    <!-- Defaults -->
+    <default remote="aosp" revision="master" sync-j="6" />
+
+    <!-- Core platform manifest reference -->
+    <project name="platform/manifest" path="manifest" revision="master" />
+
+    <!-- EclipseX specific forks (placeholder paths until repos exist) -->
+    <project name="build" path="build/make" revision="master" />
+    <project name="platform/frameworks/base" path="frameworks/base" revision="master" />
+    <project name="platform/packages/apps/Settings" path="packages/apps/Settings" revision="master" />
+    <project name="platform/system/sepolicy" path="system/sepolicy" revision="master" />
+
+    <!-- Include topical manifests -->
+    <include name="graphene.xml" />
+    <include name="evox.xml" />
+    <include name="security.xml" />
+    <include name="extras.xml" />
+</manifest>

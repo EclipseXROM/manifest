@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+    <!-- GrapheneOS components (Apache-2.0/BSD) -->
+    <project name="GrapheneOS/hardened_malloc" path="external/grapheneos/hardened_malloc" remote="graphene" revision="main" />
+    <project name="GrapheneOS/Auditor" path="packages/apps/Auditor" remote="graphene" revision="main" />
+    <project name="GrapheneOS/Apps" path="packages/apps/GrapheneApps" remote="graphene" revision="main" />
+    <project name="GrapheneOS/Vanadium" path="external/vanadium" remote="graphene" revision="main" />
+    <project name="GrapheneOS/platform_packages_apps_Settings" path="packages/apps/Settings-graphene" remote="graphene" revision="13" />
+</manifest>

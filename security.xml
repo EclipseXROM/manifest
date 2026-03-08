@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+    <!-- CopperheadOS security hardening references (public, permissive components only) -->
+    <project name="CopperheadOS/kernel_common" path="kernel/copperhead/common" remote="copperhead" revision="13" />
+    <project name="CopperheadOS/platform_bionic" path="bionic-copperhead" remote="copperhead" revision="13" />
+    <project name="CopperheadOS/platform_system_sepolicy" path="system/sepolicy-copperhead" remote="copperhead" revision="13" />
+    <project name="CopperheadOS/platform_build" path="build/copperhead" remote="copperhead" revision="13" />
+    <project name="CopperheadOS/platform_art" path="art-copperhead" remote="copperhead" revision="13" />
+</manifest>
