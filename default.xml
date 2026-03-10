@@ -25,4 +25,5 @@
     <include name="evox.xml" />
     <include name="security.xml" />
     <include name="extras.xml" />
+    <include name="twrp.xml" />
 </manifest>
