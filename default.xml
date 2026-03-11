@@ -20,6 +20,12 @@
     <project name="platform/packages/apps/Settings" path="packages/apps/Settings" revision="master" />
     <project name="platform/system/sepolicy" path="system/sepolicy" revision="master" />
 
+    <!-- EclipseXROM UEFI x64 device target -->
+    <project name="device_uefix64pc"
+             path="device/eclipsex/uefix64pc"
+             remote="eclipsex"
+             revision="main" />
+
     <!-- Include topical manifests -->
     <include name="graphene.xml" />
     <include name="evox.xml" />
