@@ -3,6 +3,11 @@
 This directory contains the layered manifest set for building the EclipseX ROM. It is designed to sit inside `.repo/local_manifests/` so you can keep using the official AOSP manifest as the base while selectively pulling in GrapheneOS, EvolutionX, CopperheadOS, and Docker components.
 
 ## Usage
+for using only our manifest
+```bash
+repo init -u https://github.com/EclipseXROM/manifest.git 
+```
+for manual patching:
 1. Initialize AOSP Android 17 (or appropriate release) as usual:
    ```bash
    repo init -u https://android.googlesource.com/platform/manifest -b master
