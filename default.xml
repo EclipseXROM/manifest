@@ -21,31 +21,31 @@
     <project name="device_huawei_angler"
              path="device/huawei/angler"
              remote="eclipsex"
-             revision="main" />
+             revision="lineage-17.1" />
     <project name="device_samsung_crownlte"
              path="device/samsung/crownlte"
              remote="eclipsex"
-             revision="main" />
+             revision="lineage-20" />
     <project name="device_samsung_starlte"
              path="device/samsung/starlte"
              remote="eclipsex"
-             revision="main" />
+             revision="lineage-20" />
     <project name="device_samsung_gracerlte"
              path="device/samsung/gracerlte"
              remote="eclipsex"
-             revision="main" />
+             revision="lineage-17.1" />
 
-    <!-- EclipseXROM common -->
-    <project name="common"
+    <!-- EclipseXROM common - repository is empty, commented out -->
+    <!-- <project name="common"
              path="device/eclipsex/common"
              remote="eclipsex"
-             revision="main" />
+             revision="main" /> -->
 
     <!-- Magisk fork -->
     <project name="magisk"
              path="external/magisk"
              remote="eclipsex"
-             revision="main" />
+             revision="master" />
 
     <!-- Include topical manifests -->
     <include name="graphene.xml" />

@@ -5,7 +5,8 @@
     <project name="docker/compose" path="external/docker/compose" remote="docker" revision="main" />
 
     <!-- Placeholder for EclipseX-specific forks (launcher, theme packs, tooling) -->
-    <project name="EclipseXROM/EclipseXLauncher" path="packages/apps/EclipseXLauncher" remote="eclipsex" revision="main" />
-    <project name="EclipseXROM/EclipseXThemePacks" path="packages/overlays/EclipseXThemes" remote="eclipsex" revision="main" />
-    <project name="EclipseXROM/EclipseXDockerUI" path="packages/apps/EclipseXDocker" remote="eclipsex" revision="main" />
+    <!-- Repositories not found on GitHub, commented out -->
+    <!-- <project name="EclipseXLauncher" path="packages/apps/EclipseXLauncher" remote="eclipsex" revision="main" /> -->
+    <!-- <project name="EclipseXThemePacks" path="packages/overlays/EclipseXThemes" remote="eclipsex" revision="main" /> -->
+    <!-- <project name="EclipseXDockerUI" path="packages/apps/EclipseXDocker" remote="eclipsex" revision="main" /> -->
 </manifest>
