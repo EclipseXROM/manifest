@@ -1,9 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
     <!-- CopperheadOS security hardening references (public, permissive components only) -->
-    <project name="CopperheadOS/kernel_common" path="kernel/copperhead/common" remote="copperhead" revision="13" />
-    <project name="CopperheadOS/platform_bionic" path="bionic-copperhead" remote="copperhead" revision="13" />
-    <project name="CopperheadOS/platform_system_sepolicy" path="system/sepolicy-copperhead" remote="copperhead" revision="13" />
-    <project name="CopperheadOS/platform_build" path="build/copperhead" remote="copperhead" revision="13" />
-    <project name="CopperheadOS/platform_art" path="art-copperhead" remote="copperhead" revision="13" />
+    <!-- Core security components -->
+    <project name="CopperheadOS/platform_art" path="art-copperhead" remote="copperhead" revision="pie" />
+    <project name="CopperheadOS/platform_bionic" path="bionic-copperhead" remote="copperhead" revision="pie" />
+    <project name="CopperheadOS/platform_bootable_recovery" path="bootable/recovery-copperhead" remote="copperhead" revision="pie" />
+    <project name="CopperheadOS/platform_build_kati" path="build/kati-copperhead" remote="copperhead" revision="pie" />
+    <project name="CopperheadOS/platform_build_soong" path="build/soong-copperhead" remote="copperhead" revision="pie" />
+    <project name="CopperheadOS/platform_build_make" path="build/make-copperhead" remote="copperhead" revision="pie" />
+    <project name="CopperheadOS/platform_system_sepolicy" path="system/sepolicy-copperhead" remote="copperhead" revision="pie" />
+    <project name="CopperheadOS/platform_system_core" path="system/core-copperhead" remote="copperhead" revision="pie" />
+    <project name="CopperheadOS/platform_system_extras" path="system/extras-copperhead" remote="copperhead" revision="pie" />
+    
+    <!-- External security components -->
+    <project name="CopperheadOS/platform_external_conscrypt" path="external/conscrypt-copperhead" remote="copperhead" revision="pie" />
+    <project name="CopperheadOS/platform_external_clang" path="external/clang-copperhead" remote="copperhead" revision="pie" />
+    <project name="CopperheadOS/platform_external_llvm" path="external/llvm-copperhead" remote="copperhead" revision="pie" />
+    
+    <!-- Frameworks security -->
+    <project name="CopperheadOS/platform_frameworks_ex" path="frameworks/ex-copperhead" remote="copperhead" revision="pie" />
+    <project name="CopperheadOS/platform_frameworks_base" path="frameworks/base-copperhead" remote="copperhead" revision="pie" />
+    <project name="CopperheadOS/platform_frameworks_native" path="frameworks/native-copperhead" remote="copperhead" revision="pie" />
+    <project name="CopperheadOS/platform_frameworks_opt_net_wifi" path="frameworks/opt/net/wifi-copperhead" remote="copperhead" revision="pie" />
+    <project name="CopperheadOS/platform_libcore" path="libcore-copperhead" remote="copperhead" revision="pie" />
+    
+    <!-- CopperheadOS specific projects -->
+    <project name="CopperheadOS/branding" path="branding-copperhead" remote="copperhead" revision="pie" />
+    <project name="CopperheadOS/platform_external_barcodescanner" path="external/barcodescanner-copperhead" remote="copperhead" revision="pie" />
+    <project name="CopperheadOS/platform_external_chromium" path="external/chromium-copperhead" remote="copperhead" revision="pie" />
+    <project name="CopperheadOS/platform_external_Etar-Calendar" path="external/Etar-Calendar-copperhead" remote="copperhead" revision="pie" />
 </manifest>

@@ -1,9 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
     <!-- EvolutionX customization sources -->
+    <!-- Core frameworks -->
     <project name="Evolution-X/frameworks_base" path="frameworks/base-evox" remote="evox" revision="udc" />
-    <project name="Evolution-X/packages_apps_EvoLauncher" path="packages/apps/EvoLauncher" remote="evox" revision="udc" />
-    <project name="Evolution-X/packages_apps_EvoxWalls" path="packages/apps/EvoxWalls" remote="evox" revision="udc" />
+    <project name="Evolution-X/frameworks_av" path="frameworks/av-evox" remote="evox" revision="udc" />
+    <project name="Evolution-X/frameworks_native" path="frameworks/native-evox" remote="evox" revision="udc" />
+    <project name="Evolution-X/frameworks_libs_systemui" path="frameworks/libs/systemui-evox" remote="evox" revision="vic" />
+    <project name="Evolution-X/frameworks_opt_net_wifi" path="frameworks/opt/net/wifi-evox" remote="evox" revision="vic" />
+    <project name="Evolution-X/frameworks_opt_telephony" path="frameworks/opt/telephony-evox" remote="evox" revision="udc" />
+    
+    <!-- Build system -->
+    <project name="Evolution-X/build" path="build/make-evox" remote="evox" revision="udc" />
+    <project name="Evolution-X/build_soong" path="build/soong-evox" remote="evox" revision="udc" />
+    <project name="Evolution-X/build_release" path="build/release-evox" remote="evox" revision="vic" />
+    
+    <!-- External components -->
+    <project name="Evolution-X/external_FadingEdgeLayout" path="external/FadingEdgeLayout-evox" remote="evox" revision="vic" />
+    <project name="Evolution-X/external_bouncycastle" path="external/bouncycastle-evox" remote="evox" revision="udc" />
+    <project name="Evolution-X/external_piex" path="external/piex-evox" remote="evox" revision="udc" />
+    
+    <!-- Hardware interfaces -->
+    <project name="Evolution-X/hardware_interfaces" path="hardware/interfaces-evox" remote="evox" revision="vic" />
+    
+    <!-- Packages -->
+    <project name="Evolution-X/packages_apps_Backgrounds" path="packages/apps/Backgrounds-evox" remote="evox" revision="udc" />
+    <project name="Evolution-X/packages_apps_ColumbusService" path="packages/apps/ColumbusService-evox" remote="evox" revision="vic" />
+    <project name="Evolution-X/packages_apps_EvoEgg" path="packages/apps/EvoEgg-evox" remote="evox" revision="vic" />
+    <project name="Evolution-X/packages_apps_Evolver" path="packages/apps/Evolver-evox" remote="evox" revision="udc" />
+    <project name="Evolution-X/packages_apps_FaceUnlock" path="packages/apps/FaceUnlock-evox" remote="evox" revision="vic" />
     <project name="Evolution-X/packages_apps_Settings" path="packages/apps/Settings-evox" remote="evox" revision="udc" />
-    <project name="Evolution-X/packages_overlays_Themes" path="packages/overlays/evox" remote="evox" revision="udc" />
+    
+    <!-- Infrastructure -->
+    <project name="Evolution-X/OTA" path="packages/apps/OTA-evox" remote="evox" revision="vic" />
 </manifest>

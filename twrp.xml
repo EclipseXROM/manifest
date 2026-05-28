@@ -1,36 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
+    <!-- TWRP - Uses official minimal-manifest-twrp AOSP-based approach -->
+    <!-- For TWRP builds, use: repo init -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp -b twrp-12.1 -->
+    
     <!-- TWRP specific remotes -->
+    <remote name="aosp" fetch="https://android.googlesource.com" review="https://android-review.googlesource.com/" />
     <remote name="twrp" fetch="https://github.com/minimal-manifest-twrp/" />
     <remote name="omnirom" fetch="https://github.com/omnirom/" />
-    <remote name="twrp-device" fetch="https://github.com/Tomatcree01/" />
     
-    <!-- TWRP core projects -->
-    <project name="platform_build" path="build" remote="twrp" revision="twrp-11" />
-    <project name="platform_system_core" path="system/core" remote="twrp" revision="twrp-11" />
-    <project name="platform_system_extras" path="system/extras" remote="twrp" revision="twrp-11" />
-    <project name="platform_hardware_libhardware" path="hardware/libhardware" remote="twrp" revision="twrp-11" />
-    <project name="platform_frameworks_base" path="frameworks/base" remote="twrp" revision="twrp-11" />
-    <project name="platform_frameworks_native" path="frameworks/native" remote="twrp" revision="twrp-11" />
-    <project name="platform_packages_apps_Trebuchet" path="packages/apps/Trebuchet" remote="twrp" revision="twrp-11" />
+    <!-- Default to AOSP 12.1 for TWRP compatibility -->
+    <default revision="refs/tags/android-12.1.0_r4" remote="aosp" sync-j="4" />
     
-    <!-- Device specific projects - Bluejay (Pixel 6a) removed from support -->
+    <!-- TWRP build system overrides -->
+    <project name="platform_build" path="build" remote="twrp" revision="android-12.1" />
     
-    <!-- TWRP recovery specific -->
-    <project name="platform_bootable_recovery" path="bootable/recovery" remote="twrp" revision="twrp-11" />
-    <project name="team_win_recovery_meat" path="bootable/recovery/meat" remote="twrp" revision="twrp-11" />
+    <!-- TWRP recovery (core component) -->
+    <project name="platform_bootable_recovery" path="bootable/recovery" remote="twrp" revision="android-12.1" />
     
-    <!-- Additional TWRP dependencies -->
-    <project name="platform_external_f2fs-tools" path="external/f2fs-tools" remote="twrp" revision="twrp-11" />
-    <project name="platform_external_e2fsprogs" path="external/e2fsprogs" remote="twrp" revision="twrp-11" />
-    <project name="platform_external_ntfs-3g" path="external/ntfs-3g" remote="twrp" revision="twrp-11" />
-    <project name="platform_external_exfat" path="external/exfat" remote="twrp" revision="twrp-11" />
-    <project name="platform_external_fuse" path="external/fuse" remote="twrp" revision="twrp-11" />
+    <!-- TWRP filesystem tools -->
+    <project name="platform_external_f2fs-tools" path="external/f2fs-tools" remote="twrp" revision="android-12.1" />
+    <project name="platform_external_e2fsprogs" path="external/e2fsprogs" remote="twrp" revision="android-12.1" />
+    <project name="platform_external_ntfs-3g" path="external/ntfs-3g" remote="twrp" revision="android-12.1" />
+    <project name="platform_external_exfat" path="external/exfat" remote="twrp" revision="android-12.1" />
+    <project name="platform_external_fuse" path="external/fuse" remote="twrp" revision="android-12.1" />
     
-    <!-- Graphics and display -->
-    <project name="platform_hardware_qcom_display" path="hardware/qcom/display" remote="omnirom" revision="android-11.0" />
-    <project name="platform_hardware_qcom_media" path="hardware/qcom/media" remote="omnirom" revision="android-11.0" />
+    <!-- Graphics support (from OmniROM for QCOM devices) -->
+    <project name="platform_hardware_qcom_display" path="hardware/qcom/display" remote="omnirom" revision="android-12.1" />
+    <project name="platform_hardware_qcom_media" path="hardware/qcom/media" remote="omnirom" revision="android-12.1" />
     
-    <!-- Minijail for security -->
-    <project name="platform_external_minijail" path="external/minijail" remote="twrp" revision="twrp-11" />
+    <!-- Security components -->
+    <project name="platform_external_minijail" path="external/minijail" remote="twrp" revision="android-12.1" />
 </manifest>
