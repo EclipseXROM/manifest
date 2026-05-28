@@ -2,6 +2,7 @@
 <manifest>
     <!-- Remotes -->
     <remote name="aosp" fetch="https://android.googlesource.com/" review="https://android-review.googlesource.com/" />
+    <remote name="aosp-manifest" fetch="https://android.googlesource.com/platform/" />
     <remote name="graphene" fetch="https://github.com/GrapheneOS/" />
     <remote name="copperhead" fetch="https://github.com/CopperheadOS/" />
     <remote name="evox" fetch="https://github.com/Evolution-X/" />
@@ -48,7 +49,9 @@
              revision="master" />
 
     <!-- Include topical manifests -->
-    <include name="aosp.xml" />
+    <!-- Include official AOSP manifest first as base -->
+    <include name="default.xml" remote="aosp-manifest" revision="android16-qpr2-release" />
+    <!-- Then include EclipseXROM customizations -->
     <include name="graphene.xml" />
     <include name="evox.xml" />
     <include name="security.xml" />
