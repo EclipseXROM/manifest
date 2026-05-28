@@ -5,5 +5,5 @@
     <project name="Auditor" path="packages/apps/Auditor" remote="graphene" revision="main" />
     <project name="Apps" path="packages/apps/GrapheneApps" remote="graphene" revision="main" />
     <project name="Vanadium" path="external/vanadium" remote="graphene" revision="main" />
-    <project name="platform_packages_apps_Settings" path="packages/apps/Settings-graphene" remote="graphene" revision="16-qpr2" />
+    <!-- Settings removed - using EvolutionX Settings instead -->
 </manifest>

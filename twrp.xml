@@ -17,17 +17,8 @@
     <!-- TWRP recovery (core component) -->
     <project name="platform_bootable_recovery" path="bootable/recovery" remote="twrp" revision="android-12.1" />
     
-    <!-- TWRP filesystem tools -->
-    <project name="platform_external_f2fs-tools" path="external/f2fs-tools" remote="twrp" revision="android-12.1" />
-    <project name="platform_external_e2fsprogs" path="external/e2fsprogs" remote="twrp" revision="android-12.1" />
-    <project name="platform_external_ntfs-3g" path="external/ntfs-3g" remote="twrp" revision="android-12.1" />
-    <project name="platform_external_exfat" path="external/exfat" remote="twrp" revision="android-12.1" />
-    <project name="platform_external_fuse" path="external/fuse" remote="twrp" revision="android-12.1" />
-    
+    <!-- External tools - using AOSP versions, removed TWRP duplicates -->
     <!-- Graphics support (from OmniROM for QCOM devices) -->
     <project name="platform_hardware_qcom_display" path="hardware/qcom/display" remote="omnirom" revision="android-12.1" />
     <project name="platform_hardware_qcom_media" path="hardware/qcom/media" remote="omnirom" revision="android-12.1" />
-    
-    <!-- Security components -->
-    <project name="platform_external_minijail" path="external/minijail" remote="twrp" revision="android-12.1" />
 </manifest>
