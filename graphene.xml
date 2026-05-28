@@ -1,24 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
     <!-- GrapheneOS components (Apache-2.0/BSD) -->
-    <!-- Core security hardening components -->
-    <project name="GrapheneOS/hardened_malloc" path="external/grapheneos/hardened_malloc" remote="graphene" revision="16-qpr2" />
-    <project name="GrapheneOS/platform_external_AppCompatConfig" path="external/AppCompatConfig" remote="graphene" revision="16-qpr2" />
-    <project name="GrapheneOS/platform_external_Apps" path="external/Apps" remote="graphene" revision="16-qpr2" />
-    
-    <!-- Security apps -->
+    <project name="GrapheneOS/hardened_malloc" path="external/grapheneos/hardened_malloc" remote="graphene" revision="main" />
     <project name="GrapheneOS/Auditor" path="packages/apps/Auditor" remote="graphene" revision="main" />
     <project name="GrapheneOS/Apps" path="packages/apps/GrapheneApps" remote="graphene" revision="main" />
     <project name="GrapheneOS/Vanadium" path="external/vanadium" remote="graphene" revision="main" />
-    <project name="GrapheneOS/platform_packages_apps_Settings" path="packages/apps/Settings-graphene" remote="graphene" revision="16-qpr2" />
-    
-    <!-- Additional GrapheneOS security components -->
-    <project name="GrapheneOS/platform_art" path="art-graphene" remote="graphene" revision="16-qpr2" />
-    <project name="GrapheneOS/platform_bionic" path="bionic-graphene" remote="graphene" revision="16-qpr2" />
-    <project name="GrapheneOS/platform_bootable_recovery" path="bootable/recovery-graphene" remote="graphene" revision="16-qpr2" />
-    <project name="GrapheneOS/platform_build" path="build/graphene" remote="graphene" revision="16-qpr2" />
-    <project name="GrapheneOS/platform_build_release" path="build/release-graphene" remote="graphene" revision="16-qpr2" />
-    <project name="GrapheneOS/platform_build_soong" path="build/soong-graphene" remote="graphene" revision="16-qpr2" />
-    <project name="GrapheneOS/platform_development" path="development-graphene" remote="graphene" revision="16-qpr2" />
-    <project name="GrapheneOS/device_common" path="device/common-graphene" remote="graphene" revision="16-qpr2" />
+    <project name="GrapheneOS/platform_packages_apps_Settings" path="packages/apps/Settings-graphene" remote="graphene" revision="13" />
 </manifest>
