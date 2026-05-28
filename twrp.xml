@@ -6,7 +6,6 @@
     <remote name="twrp-device" fetch="https://github.com/Tomatcree01/" />
     
     <!-- TWRP core projects -->
-    <project name="platform_manifest_twrp_aosp" path="manifest" remote="twrp" revision="twrp-11" />
     <project name="platform_build" path="build" remote="twrp" revision="twrp-11" />
     <project name="platform_system_core" path="system/core" remote="twrp" revision="twrp-11" />
     <project name="platform_system_extras" path="system/extras" remote="twrp" revision="twrp-11" />
@@ -15,11 +14,7 @@
     <project name="platform_frameworks_native" path="frameworks/native" remote="twrp" revision="twrp-11" />
     <project name="platform_packages_apps_Trebuchet" path="packages/apps/Trebuchet" remote="twrp" revision="twrp-11" />
     
-    <!-- Device specific projects for Bluejay (Pixel 6a) -->
-    <project name="android_device_google_bluejay" path="device/google/bluejay" remote="twrp-device" revision="twrp-13" />
-    <project name="android_device_google_gs101" path="device/google/gs101" remote="twrp-device" revision="twrp-13" />
-    <project name="android_kernel_google_bluejay" path="kernel/google/bluejay" remote="twrp-device" revision="twrp-13" />
-    <project name="android_vendor_google_bluejay" path="vendor/google/bluejay" remote="twrp-device" revision="twrp-13" />
+    <!-- Device specific projects - Bluejay (Pixel 6a) removed from support -->
     
     <!-- TWRP recovery specific -->
     <project name="platform_bootable_recovery" path="bootable/recovery" remote="twrp" revision="twrp-11" />

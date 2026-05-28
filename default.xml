@@ -8,21 +8,42 @@
     <remote name="docker" fetch="https://github.com/" />
     <remote name="eclipsex" fetch="https://github.com/EclipseXROM/" />
 
-    <!-- Defaults -->
-    <default remote="aosp" revision="master" sync-j="6" />
-
-    <!-- Core platform manifest reference -->
-    <project name="platform/manifest" path="manifest" revision="master" />
-
-    <!-- EclipseX specific forks (placeholder paths until repos exist) -->
-    <project name="build" path="build/make" revision="master" />
-    <project name="platform/frameworks/base" path="frameworks/base" revision="master" />
-    <project name="platform/packages/apps/Settings" path="packages/apps/Settings" revision="master" />
-    <project name="platform/system/sepolicy" path="system/sepolicy" revision="master" />
+    <!-- Defaults - aligned with AOSP android16-qpr2-release -->
+    <default remote="aosp" revision="android16-qpr2-release" sync-j="4" />
 
     <!-- EclipseXROM UEFI x64 device target -->
     <project name="device_uefix64pc"
              path="device/eclipsex/uefix64pc"
+             remote="eclipsex"
+             revision="main" />
+
+    <!-- EclipseXROM device repositories -->
+    <project name="device_huawei_angler"
+             path="device/huawei/angler"
+             remote="eclipsex"
+             revision="main" />
+    <project name="device_samsung_crownlte"
+             path="device/samsung/crownlte"
+             remote="eclipsex"
+             revision="main" />
+    <project name="device_samsung_starlte"
+             path="device/samsung/starlte"
+             remote="eclipsex"
+             revision="main" />
+    <project name="device_samsung_gracerlte"
+             path="device/samsung/gracerlte"
+             remote="eclipsex"
+             revision="main" />
+
+    <!-- EclipseXROM common -->
+    <project name="common"
+             path="device/eclipsex/common"
+             remote="eclipsex"
+             revision="main" />
+
+    <!-- Magisk fork -->
+    <project name="magisk"
+             path="external/magisk"
              remote="eclipsex"
              revision="main" />
 
@@ -31,5 +52,4 @@
     <include name="evox.xml" />
     <include name="security.xml" />
     <include name="extras.xml" />
-    <include name="twrp.xml" />
 </manifest>
