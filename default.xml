@@ -48,6 +48,7 @@
              revision="master" />
 
     <!-- Include topical manifests -->
+    <include name="aosp.xml" />
     <include name="graphene.xml" />
     <include name="evox.xml" />
     <include name="security.xml" />
