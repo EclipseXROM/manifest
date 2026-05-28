@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
     <!-- EvolutionX customization sources -->
-    <project name="frameworks_base" path="frameworks/base-evox" remote="evox" revision="udc" />
+    <!-- frameworks/base-evox removed - incompatible with Android 16, using AOSP version -->
     <project name="packages_apps_Settings" path="packages/apps/Settings-evox" remote="evox" revision="udc" />
     <!-- Repositories not found on GitHub, commented out -->
     <!-- <project name="packages_apps_EvoLauncher" path="packages/apps/EvoLauncher" remote="evox" revision="udc" /> -->
