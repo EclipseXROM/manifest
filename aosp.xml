@@ -29,7 +29,7 @@
   </project>
   <project path="art" name="platform/art" groups="pdk" />
   <project path="bionic" name="platform/bionic" groups="pdk" />
-  <project path="bootable/deprecated-ota" name="platform/bootable/deprecated-ota" groups="pdk-cw" />
+  <!-- bootable/deprecated-ota removed - depends on recovery_defaults from AOSP recovery (using TWRP instead) -->
   <!-- bootable/recovery removed - using TWRP version -->
   <project path="bootable/libbootloader" name="platform/bootable/libbootloader" groups="vts,pdk" />
   <project path="cts" name="platform/cts" groups="cts,pdk-cw-fs,pdk-fs" />
@@ -59,8 +59,7 @@
   <project path="device/google_car" name="device/google_car" groups="pdk" />
   <project path="device/linaro/dragonboard" name="device/linaro/dragonboard" groups="device,dragonboard,pdk" />
   <project path="device/linaro/dragonboard-kernel" name="device/linaro/dragonboard-kernel" groups="device,dragonboard,pdk" clone-depth="1" />
-  <project path="device/linaro/hikey" name="device/linaro/hikey" groups="device,hikey,pdk" />
-  <project path="device/linaro/hikey-kernel" name="device/linaro/hikey-kernel" groups="device,hikey,pdk" clone-depth="1" />
+  <!-- device/linaro/hikey removed - recovery depends on librecovery_ui from AOSP recovery (using TWRP instead) -->
   <project path="device/sample" name="device/sample" groups="pdk" />
   <project path="external/aac" name="platform/external/aac" groups="pdk" />
   <project path="external/abseil-cpp" name="platform/external/abseil-cpp" groups="pdk" />
