@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
     <!-- Remotes -->
-    <remote name="aosp" fetch="https://android.googlesource.com/" review="https://android-review.googlesource.com/" />
+    <!-- Note: aosp remote is defined in aosp.xml -->
     <remote name="graphene" fetch="https://github.com/GrapheneOS/" />
     <remote name="evox" fetch="https://github.com/Evolution-X/" />
     <remote name="docker" fetch="https://github.com/" />
@@ -9,8 +9,7 @@
     <remote name="divested" fetch="https://github.com/Divested-Mobile/" />
     <remote name="calyx" fetch="https://github.com/CalyxOS/" />
 
-    <!-- Defaults - aligned with AOSP android16-qpr2-release -->
-    <default remote="aosp" revision="android16-qpr2-release" sync-j="4" />
+    <!-- Note: default is defined in aosp.xml -->
 
     <!-- EclipseXROM UEFI x64 device target -->
     <project name="device_uefix64pc"
