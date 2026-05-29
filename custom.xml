@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+    <!-- Remotes -->
+    <remote name="aosp" fetch="https://android.googlesource.com/" review="https://android-review.googlesource.com/" />
+    <remote name="graphene" fetch="https://github.com/GrapheneOS/" />
+    <remote name="evox" fetch="https://github.com/Evolution-X/" />
+    <remote name="docker" fetch="https://github.com/" />
+    <remote name="eclipsex" fetch="https://github.com/EclipseXROM/" />
+    <remote name="divested" fetch="https://github.com/Divested-Mobile/" />
+    <remote name="calyx" fetch="https://github.com/CalyxOS/" />
+
+    <!-- Defaults - aligned with AOSP android16-qpr2-release -->
+    <default remote="aosp" revision="android16-qpr2-release" sync-j="4" />
+
+    <!-- EclipseXROM UEFI x64 device target -->
+    <project name="device_uefix64pc"
+             path="device/eclipsex/uefix64pc"
+             remote="eclipsex"
+             revision="main" />
+
+    <!-- EclipseXROM device repositories -->
+    <project name="device_huawei_angler"
+             path="device/huawei/angler"
+             remote="eclipsex"
+             revision="lineage-17.1" />
+    <project name="device_samsung_crownlte"
+             path="device/samsung/crownlte"
+             remote="eclipsex"
+             revision="lineage-20" />
+    <project name="device_samsung_starlte"
+             path="device/samsung/starlte"
+             remote="eclipsex"
+             revision="lineage-20" />
+    <project name="device_samsung_gracerlte"
+             path="device/samsung/gracerlte"
+             remote="eclipsex"
+             revision="lineage-17.1" />
+
+    <!-- EclipseXROM common - repository is empty, commented out -->
+    <!-- <project name="common"
+             path="device/eclipsex/common"
+             remote="eclipsex"
+             revision="main" /> -->
+
+    <!-- Magisk fork -->
+    <project name="magisk"
+             path="external/magisk"
+             remote="eclipsex"
+             revision="master" />
+</manifest>
