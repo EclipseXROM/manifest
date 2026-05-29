@@ -6,6 +6,7 @@
     <!-- TWRP specific remotes -->
     <remote name="aosp" fetch="https://android.googlesource.com" review="https://android-review.googlesource.com/" />
     <remote name="twrp" fetch="https://github.com/minimal-manifest-twrp/" />
+    <remote name="teamwin" fetch="https://github.com/TeamWin/" />
     <remote name="omnirom" fetch="https://github.com/omnirom/" />
     
     <!-- Default to AOSP 12.1 for TWRP compatibility -->
@@ -15,10 +16,10 @@
     <project name="platform_build" path="build" remote="twrp" revision="android-12.1" />
     
     <!-- TWRP recovery (core component) -->
-    <project name="platform_bootable_recovery" path="bootable/recovery" remote="twrp" revision="android-12.1" />
+    <project name="android_bootable_recovery" path="bootable/recovery" remote="teamwin" revision="android-12.1" />
     
     <!-- External tools - using AOSP versions, removed TWRP duplicates -->
     <!-- Graphics support (from OmniROM for QCOM devices) -->
-    <project name="platform_hardware_qcom_display" path="hardware/qcom/display" remote="omnirom" revision="android-12.1" />
-    <project name="platform_hardware_qcom_media" path="hardware/qcom/media" remote="omnirom" revision="android-12.1" />
+    <project name="android_hardware_qcom_display" path="hardware/qcom/display" remote="omnirom" revision="android-12.1" />
+    <project name="android_hardware_qcom_media" path="hardware/qcom/media" remote="omnirom" revision="android-12.1" />
 </manifest>
