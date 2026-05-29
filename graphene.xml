@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
     <!-- GrapheneOS components (Apache-2.0/BSD) -->
-    <project name="hardened_malloc" path="external/grapheneos/hardened_malloc" remote="graphene" revision="16-qpr2" />
+    <!-- hardened_malloc removed - incompatible with Android 16 (unrecognized property) -->
+    <!-- Vanadium removed - testing for build conflicts -->
     <project name="Auditor" path="packages/apps/Auditor" remote="graphene" revision="main" />
     <project name="Apps" path="packages/apps/GrapheneApps" remote="graphene" revision="main" />
-    <project name="Vanadium" path="external/vanadium" remote="graphene" revision="main" />
     <!-- Settings removed - using EvolutionX Settings instead -->
 </manifest>

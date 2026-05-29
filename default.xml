@@ -50,7 +50,7 @@
     <!-- Include official AOSP manifest first as base -->
     <include name="aosp.xml" />
     <!-- Then include EclipseXROM customizations -->
-    <include name="graphene.xml" />
+    <!-- graphene.xml disabled - testing for build conflicts -->
     <include name="evox.xml" />
     <include name="extras.xml" />
 </manifest>
