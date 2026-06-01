@@ -3,7 +3,7 @@
     <!-- GrapheneOS components (Apache-2.0/BSD) -->
     <!-- hardened_malloc removed - incompatible with Android 16 (unrecognized property) -->
     <!-- Vanadium removed - testing for build conflicts -->
-    <project name="Auditor" path="packages/apps/Auditor" remote="graphene" revision="main" />
-    <project name="Apps" path="packages/apps/GrapheneApps" remote="graphene" revision="main" />
+    <project name="Auditor" path="packages/apps/Auditor" remote="eclipsex" revision="main" />
+    <project name="AppStore" path="packages/apps/GrapheneApps" remote="eclipsex" revision="main" />
     <!-- Settings removed - using EvolutionX Settings instead -->
 </manifest>

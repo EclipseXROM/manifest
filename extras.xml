@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
     <!-- Docker / container support -->
-    <project name="moby/moby" path="external/docker/moby" remote="docker" revision="master" />
-    <project name="docker/compose" path="external/docker/compose" remote="docker" revision="main" />
+    <project name="moby" path="external/docker/moby" remote="eclipsex" revision="master" />
+    <project name="compose" path="external/docker/compose" remote="eclipsex" revision="main" />
 
     <!-- Placeholder for EclipseX-specific forks (launcher, theme packs, tooling) -->
     <!-- Repositories not found on GitHub, commented out -->

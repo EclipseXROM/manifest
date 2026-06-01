@@ -5,7 +5,7 @@
     <!-- DivestOS - realtime malware scanner -->
     <project name="Hypatia"
              path="external/hypatia"
-             remote="divested"
+             remote="eclipsex"
              revision="master" />
     
     <!-- Note: hardened_malloc from GrapheneOS was removed - incompatible with Android 16 -->
