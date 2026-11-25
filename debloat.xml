@@ -79,7 +79,10 @@
     <!-- ==== Dev / demo / test leftovers ================================== -->
     <remove-project name="platform/packages/apps/DevCamera" />
     <remove-project name="platform/packages/apps/DeviceDiagnostics" />
-    <remove-project name="platform/packages/apps/EyeDropper" />
+    <!-- KEPT (source): EyeDropper - Intent.java references               -->
+    <!-- com.android.eyedropper.Flags.FLAG_ENABLE_EYE_DROPPER_API; the    -->
+    <!-- flags-aconfig-java lib is a real compile dep of framework.jar.   -->
+    <!-- EyeDropper APK stays filtered out of PRODUCT_PACKAGES.           -->
     <remove-project name="platform/packages/apps/Multiuser" />
     <remove-project name="platform/packages/apps/OnDeviceAppPrediction" />
     <remove-project name="platform/packages/apps/Protips" />
