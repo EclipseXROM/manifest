@@ -171,7 +171,9 @@
     <remove-project name="platform/test/mlts/benchmark" />
     <remove-project name="platform/test/mlts/models" />
     <remove-project name="platform/test/cts-root" />
-    <remove-project name="platform/test/vts-testcase/hal" />
+    <!-- KEPT: vts-testcase/hal defines libvts_vintf_test_common, required -->
+    <!-- by libassemblevintf (system/libvintf) - a real build-time host    -->
+    <!-- tool, not a test. Removing it breaks every build.                 -->
     <remove-project name="platform/test/vts-testcase/kernel" />
     <remove-project name="platform/test/vts-testcase/nbu" />
     <remove-project name="platform/test/vts-testcase/performance" />
