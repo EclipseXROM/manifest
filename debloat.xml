@@ -192,9 +192,11 @@
     <remove-project name="platform/prebuilts/vndk/v33" />
     <remove-project name="platform/prebuilts/vndk/v34" />
 
-    <!-- ==== SDK / NDK prebuilts (~2-3 GB) ================================ -->
-    <!-- Only needed to build the SDK/NDK itself, not a device image.       -->
-    <remove-project name="platform/prebuilts/sdk" />
+    <!-- ==== NDK prebuilts (~1-2 GB) ====================================== -->
+    <!-- Only needed to build the NDK itself, not a device image.           -->
+    <!-- prebuilts/sdk KEPT - its prebuilt_apis modules generate the        -->
+    <!-- *.api.<scope>.<ver> / *.api.combined.* modules that sdk_library    -->
+    <!-- consumers depend on at blueprint analysis.                         -->
     <remove-project name="platform/prebuilts/ndk" />
 
     <!-- ==== Dev-board / generic reference targets ======================== -->
