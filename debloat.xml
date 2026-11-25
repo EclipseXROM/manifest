@@ -95,7 +95,8 @@
     <remove-project name="platform/developers/samples/android" />
     <!-- KEPT: platform/development defines platform_tools_version, a hard -->
     <!-- dep of libfastboot / libadb (real host tools that ship).          -->
-    <remove-project name="device/sample" />
+    <!-- KEPT: device/sample - its etc/apns-full-conf.xml is the canonical  -->
+    <!-- APN database that product mks PRODUCT_COPY_FILES into every image. -->
     <remove-project name="trusty/app/sample" />
 
     <!-- ==== Android TV form factor ======================================= -->
