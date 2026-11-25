@@ -152,7 +152,8 @@
     <remove-project name="kernel/prebuilts/common-modules/virtual-device/mainline/arm64" />
     <remove-project name="kernel/prebuilts/common-modules/virtual-device/mainline/x86-64" />
     <remove-project name="kernel/tests" />
-    <remove-project name="kernel/configs" />
+    <!-- kernel/configs KEPT - provides kernel-config-soong-rules used by
+         VINTF compatibility-matrix generation. -->
 
     <!-- ==== CTS / VTS / Tradefed test infrastructure (~4 GB) ============= -->
     <!-- Certification test suites - not part of the ROM, not needed to     -->
