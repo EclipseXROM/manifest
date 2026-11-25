@@ -81,7 +81,8 @@
     <remove-project name="platform/packages/apps/UniversalMediaPlayer" />
     <remove-project name="platform/developers/build" />
     <remove-project name="platform/developers/samples/android" />
-    <remove-project name="platform/development" />
+    <!-- KEPT: platform/development defines platform_tools_version, a hard -->
+    <!-- dep of libfastboot / libadb (real host tools that ship).          -->
     <remove-project name="device/sample" />
     <remove-project name="trusty/app/sample" />
 
@@ -171,14 +172,14 @@
     <remove-project name="platform/test/mlts/benchmark" />
     <remove-project name="platform/test/mlts/models" />
     <remove-project name="platform/test/cts-root" />
-    <!-- KEPT: vts-testcase/hal defines libvts_vintf_test_common, required -->
-    <!-- by libassemblevintf (system/libvintf) - a real build-time host    -->
-    <!-- tool, not a test. Removing it breaks every build.                 -->
+    <!-- KEPT: vts-testcase/hal defines libvts_vintf_test_common and       -->
+    <!-- vts-testcase/vndk defines vts_vndk_utils - hard deps of           -->
+    <!-- libassemblevintf (system/libvintf) and test/vts modules which are -->
+    <!-- real build-time host tools, not tests. Removing breaks builds.    -->
     <remove-project name="platform/test/vts-testcase/kernel" />
     <remove-project name="platform/test/vts-testcase/nbu" />
     <remove-project name="platform/test/vts-testcase/performance" />
     <remove-project name="platform/test/vts-testcase/security" />
-    <remove-project name="platform/test/vts-testcase/vndk" />
     <remove-project name="platform/test/catbox" />
     <remove-project name="platform/tools/tradefederation/contrib" />
     <remove-project name="platform/tools/tradefederation/prebuilts" />
