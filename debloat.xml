@@ -51,14 +51,13 @@
 
     <!-- ==== Remaining stock/utility bloat ================================ -->
     <!-- Each drops a named user feature - deliberately stripped:
-         DeskClock (no suite clock app yet), Messaging (default SMS role;
-         SMS itself keeps working - install an SMS app from the Store),
-         Stk (SIM toolkit UI), EmergencyInfo, SafetyRegulatoryInfo
-         (regulatory-marks screen - check regional compliance needs),
-         SettingsIntelligence (settings suggestions), PrivateSpace,
-         QuickAccessWallet (Google Pay slot), ImsServiceEntitlement.       -->
+         DeskClock (no suite clock app yet), Stk (SIM toolkit UI),
+         EmergencyInfo, SafetyRegulatoryInfo (regulatory-marks screen -
+         check regional compliance needs), SettingsIntelligence (settings
+         suggestions), PrivateSpace, QuickAccessWallet (Google Pay slot),
+         ImsServiceEntitlement.
+         Messaging KEPT - it is the default SMS app.                       -->
     <remove-project name="platform/packages/apps/DeskClock" />
-    <remove-project name="platform/packages/apps/Messaging" />
     <remove-project name="platform/packages/apps/Stk" />
     <remove-project name="platform/packages/apps/EmergencyInfo" />
     <remove-project name="platform/packages/apps/SafetyRegulatoryInfo" />
@@ -122,12 +121,10 @@
     <remove-project name="device/google_car" />
     <remove-project name="device/generic/car" />
 
-    <!-- ==== Emulator / virtual-device stack (~3 GB) ====================== -->
-    <!-- No emulator images, no VM device trees, no emulator HALs.          -->
-    <remove-project name="platform/prebuilts/android-emulator" />
-    <remove-project name="platform/prebuilts/qemu-kernel" />
-    <remove-project name="platform/hardware/google/aemu" />
-    <remove-project name="platform/hardware/google/gfxstream" />
+    <!-- ==== Virtual-device stack, x86-64/cuttlefish only (~2 GB) ========= -->
+    <!-- aarch64 emulator is KEPT (goldfish + generic/arm64 + qemu-kernel + -->
+    <!-- android-emulator + aemu + gfxstream stay synced). Only the heavy   -->
+    <!-- cuttlefish VM tree and the trout/contexthub/etm extras go.         -->
     <remove-project name="device/google/cuttlefish" />
     <remove-project name="device/google/cuttlefish_prebuilts" />
     <remove-project name="device/google/cuttlefish_vmm" />
@@ -135,16 +132,14 @@
     <remove-project name="device/google/contexthub" />
     <remove-project name="device/google/common/etm" />
 
-    <!-- ==== Kernel prebuilt images (~3 GB) =============================== -->
-    <!-- GKI/prebuilt kernel images for generic targets only. EclipseX      -->
-    <!-- device trees carry their own kernels; these are dead weight.       -->
+    <!-- ==== Kernel prebuilt images (~2 GB) =============================== -->
+    <!-- GKI/prebuilt kernel images. arm64 (6.6, 6.12, mainline) is KEPT    -->
+    <!-- for the aarch64 emulator; x86-64 and all virtual-device module     -->
+    <!-- packs go (EclipseX device trees carry their own kernels).          -->
     <remove-project name="kernel/prebuilts/6.1/arm64" />
     <remove-project name="kernel/prebuilts/6.1/x86-64" />
-    <remove-project name="kernel/prebuilts/6.6/arm64" />
     <remove-project name="kernel/prebuilts/6.6/x86-64" />
-    <remove-project name="kernel/prebuilts/6.12/arm64" />
     <remove-project name="kernel/prebuilts/6.12/x86-64" />
-    <remove-project name="kernel/prebuilts/mainline/arm64" />
     <remove-project name="kernel/prebuilts/mainline/x86-64" />
     <remove-project name="kernel/prebuilts/common-modules/trusty/6.6/arm64" />
     <remove-project name="kernel/prebuilts/common-modules/trusty/6.12/arm64" />
@@ -199,9 +194,9 @@
     <remove-project name="platform/prebuilts/ndk" />
 
     <!-- ==== Dev-board / generic reference targets ======================== -->
-    <!-- Amlogic/Linaro dev boards + generic aosp_* products (kept:         -->
-    <!-- device/generic/common - android-x86 base used by uefix64pc - and   -->
-    <!-- device/generic/goldfish|trusty, pulled in by that base).           -->
+    <!-- Amlogic/Linaro dev boards + generic aosp_* products. Kept:         -->
+    <!-- device/generic/common + goldfish + trusty (android-x86 base for    -->
+    <!-- uefix64pc) and device/generic/arm64 (aarch64 emulator target).     -->
     <remove-project name="device/amlogic/yukawa" />
     <remove-project name="device/amlogic/yukawa-kernel" />
     <remove-project name="device/linaro/dragonboard" />
@@ -209,7 +204,6 @@
     <remove-project name="device/linaro/hikey" />
     <remove-project name="device/linaro/hikey-kernel" />
     <remove-project name="device/generic/art" />
-    <remove-project name="device/generic/arm64" />
     <remove-project name="device/generic/armv7-a-neon" />
     <remove-project name="device/generic/x86" />
     <remove-project name="device/generic/x86_64" />
@@ -222,7 +216,10 @@
     <!--   ManagedProvisioning                             provisioning       -->
     <!--   CarrierConfig, CellBroadcastReceiver            carrier/reg.     -->
     <!--   Contacts, ContactsPicker, providers/*             PIM APIs       -->
-    <!--   Dialer, BasicSmsReceiver, PhoneCommon             telephony      -->
+    <!--   Dialer, Messaging, BasicSmsReceiver, PhoneCommon  telephony+SMS  -->
+    <!--   device/generic/arm64, prebuilts/android-emulator|qemu-kernel,    -->
+    <!--   hardware/google/aemu|gfxstream, kernel/prebuilts/*/arm64         -->
+    <!--                                                     aarch64 emu    -->
     <!--   SecureElement, Settings, StorageManager, SystemUIGo              -->
     <!--   CaptivePortalLogin, Provision                     boot/setup     -->
     <!--   all packages/modules/* except the ads pair      API surface      -->

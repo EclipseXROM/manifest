@@ -47,13 +47,17 @@ uefix64pc) already carry this hook in their product makefiles.
 
 ## Debloat / no-Google policy
 
-`debloat.xml` removes ~145 source projects via `<remove-project>`: Google
+`debloat.xml` removes ~135 source projects via `<remove-project>`: Google
 search/ads surfaces (QuickSearchBox, AdServices, OnDevicePersonalization),
 stock apps the suite replaces (Browser2, Calendar, Gallery2, Music,
 Launcher3, ...), dev/demo leftovers, TV/automotive form factors, and the
-multi-GB sync heaps — `kernel/prebuilts/*`, the emulator/VM stack
-(cuttlefish, qemu-kernel, aemu, gfxstream), CTS/VTS/Tradefed test infra,
-VNDK snapshots, and `prebuilts/sdk`+`ndk`. Roughly 10+ GB saved per sync.
+multi-GB sync heaps — x86-64 kernel images + virtual-device module packs,
+the cuttlefish VM stack, CTS/VTS/Tradefed test infra, VNDK snapshots, and
+`prebuilts/sdk`+`ndk`. Roughly 8-10 GB saved per sync.
+
+Kept on purpose: the default SMS app (Messaging), the Phone/telephony
+stack, and the **aarch64 emulator** (goldfish, `device/generic/arm64`,
+qemu-kernel, android-emulator, aemu, gfxstream, arm64 GKI prebuilts).
 
 Compatibility rule: anything that is an API surface stays — WebView, SAF,
 providers, telephony, all mainline modules except the ads pair. Apps keep
