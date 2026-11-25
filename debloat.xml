@@ -188,9 +188,6 @@
     <!-- Only needed to run new system images against OLD vendor images.    -->
     <!-- v34 is KEPT - the current VNDK apex (com.android.vndk.v34) sources -->
     <!-- its vndk*/llndk library lists from it on every build.              -->
-    <remove-project name="platform/prebuilts/vndk/v31" />
-    <remove-project name="platform/prebuilts/vndk/v32" />
-    <remove-project name="platform/prebuilts/vndk/v33" />
 
     <!-- ==== NDK prebuilts (~1-2 GB) ====================================== -->
     <!-- Only needed to build the NDK itself, not a device image.           -->
