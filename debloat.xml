@@ -21,11 +21,14 @@
 
 
     <!-- ==== Google ads / telemetry ======================================= -->
-    <!-- Privacy Sandbox / ads infrastructure, source + module SDK stubs.   -->
-    <!-- Apps calling Topics/Fledge APIs degrade to "service unavailable".  -->
-    <!-- config/debloat.mk also filters the APEX names out of               -->
-    <!-- PRODUCT_PACKAGES so inherited product mks cannot reference them.   -->
-    <remove-project name="platform/packages/modules/AdServices" />
+    <!-- Privacy Sandbox / ads infrastructure.                              -->
+    <!-- KEPT (source): packages/modules/AdServices - services.jar          -->
+    <!-- (services.core.unboosted) hard-depends on service-sdksandbox       -->
+    <!-- stubs and sdk_sandbox aconfig flags; upstream wires it             -->
+    <!-- unconditionally, no RELEASE_* flag escape. The SOURCE syncs but    -->
+    <!-- the com.android.adservices APEX is filtered out of                 -->
+    <!-- PRODUCT_PACKAGES by config/debloat.mk - source present, payload    -->
+    <!-- never ships.                                                       -->
     <remove-project name="platform/packages/modules/OnDevicePersonalization" />
     <remove-project name="platform/prebuilts/module_sdk/AdServices" />
     <remove-project name="platform/prebuilts/module_sdk/OnDevicePersonalization" />
@@ -45,7 +48,11 @@
     <remove-project name="platform/packages/apps/AvatarPicker" />
 
     <!-- ==== Stock launcher + theming (replaced by EclipseXHome) ========== -->
-    <remove-project name="platform/packages/apps/Launcher3" />
+    <!-- KEPT (source): packages/apps/Launcher3 - services.core and         -->
+    <!-- iconloaderlib hard-depend on com_android_launcher3_flags_lib and   -->
+    <!-- platform_testing on launcher-aosp-tapl. Launcher3/Launcher3Quick-  -->
+    <!-- Step/WallpaperPicker2 APKs are filtered out of PRODUCT_PACKAGES    -->
+    <!-- by config/debloat.mk - source present, payload never ships.        -->
     <remove-project name="platform/packages/apps/ThemePicker" />
     <remove-project name="platform/packages/apps/WallpaperPicker2" />
 
@@ -116,7 +123,8 @@
     <remove-project name="platform/packages/apps/Car/RotaryImePrebuilt" />
     <remove-project name="platform/packages/apps/Car/Settings" />
     <remove-project name="platform/packages/apps/Car/SettingsIntelligence" />
-    <remove-project name="platform/packages/apps/Car/SystemUI" />
+    <!-- KEPT: Car/SystemUI defines CarSystemUI-core + systemui_car aconfig -->
+    <!-- flags, required by Car/systemlibs and services/Car distant display.-->
     <remove-project name="platform/packages/apps/Car/SystemUpdater" />
     <remove-project name="platform/packages/apps/Car/Templates" />
     <remove-project name="platform/packages/apps/Car/VoiceControl" />
