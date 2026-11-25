@@ -123,9 +123,10 @@
 
     <!-- ==== Virtual-device stack, x86-64/cuttlefish only (~2 GB) ========= -->
     <!-- aarch64 emulator is KEPT (goldfish + generic/arm64 + qemu-kernel + -->
-    <!-- android-emulator + aemu + gfxstream stay synced). Only the heavy   -->
-    <!-- cuttlefish VM tree and the trout/contexthub/etm extras go.         -->
-    <remove-project name="device/google/cuttlefish" />
+    <!-- android-emulator + aemu + gfxstream stay synced). The cuttlefish   -->
+    <!-- source repo is KEPT too - platform_testing's automotive proxy      -->
+    <!-- needs its cuttlefish_base module. Only the GB-heavy prebuilt VM    -->
+    <!-- images, the vmm, and trout/contexthub/etm extras go.               -->
     <remove-project name="device/google/cuttlefish_prebuilts" />
     <remove-project name="device/google/cuttlefish_vmm" />
     <remove-project name="device/google/trout" />
