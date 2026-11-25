@@ -43,9 +43,11 @@
              remote="eclipsex"
              revision="main" />
 
-    <!-- Magisk fork -->
+    <!-- Magisk fork - parked as source only. NOT under external/: its
+         native/src/Android.mk trips AOSP's androidmk denylist at every
+         build. Magisk is not AOSP-buildable anyway (own NDK/Rust build). -->
     <project name="magisk"
-             path="external/magisk"
+             path="vendor/eclipsex/magisk"
              remote="eclipsex"
              revision="master" />
 </manifest>
