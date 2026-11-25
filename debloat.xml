@@ -70,7 +70,8 @@
     <remove-project name="platform/packages/apps/Stk" />
     <remove-project name="platform/packages/apps/EmergencyInfo" />
     <remove-project name="platform/packages/apps/SafetyRegulatoryInfo" />
-    <remove-project name="platform/packages/apps/SettingsIntelligence" />
+    <!-- KEPT (source): SettingsIntelligence - CarSettingsIntelligence      -->
+    <!-- links SettingsIntelligence-core. APK filtered by debloat.mk.       -->
     <remove-project name="platform/packages/apps/PrivateSpace" />
     <remove-project name="platform/packages/apps/QuickAccessWallet" />
     <remove-project name="platform/packages/apps/ImsServiceEntitlement" />
