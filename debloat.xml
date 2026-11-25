@@ -182,7 +182,8 @@
     <!-- vts-testcase/vndk defines vts_vndk_utils - hard deps of           -->
     <!-- libassemblevintf (system/libvintf) and test/vts modules which are -->
     <!-- real build-time host tools, not tests. Removing breaks builds.    -->
-    <remove-project name="platform/test/vts-testcase/kernel" />
+    <!-- KEPT: vts-testcase/kernel defines gen_ltp_config, required by the  -->
+    <!-- ltp_config_* genrules in external/ltp/android.                     -->
     <remove-project name="platform/test/vts-testcase/nbu" />
     <remove-project name="platform/test/vts-testcase/performance" />
     <remove-project name="platform/test/vts-testcase/security" />
