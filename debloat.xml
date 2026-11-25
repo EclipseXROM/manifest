@@ -167,7 +167,6 @@
     <!-- analysis. (cts is ~3 GB of the savings - it is NOT optional.)      -->
     <remove-project name="platform/test/dittosuite" />
     <remove-project name="platform/test/graphics" />
-    <remove-project name="platform/test/robolectric-extensions" />
     <remove-project name="platform/test/mlts/benchmark" />
     <remove-project name="platform/test/mlts/models" />
     <remove-project name="platform/test/cts-root" />
