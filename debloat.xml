@@ -158,18 +158,18 @@
     <!-- ==== CTS / VTS / Tradefed test infrastructure (~4 GB) ============= -->
     <!-- Certification test suites - not part of the ROM, not needed to     -->
     <!-- build or run it. Re-add temporarily if you ever certify a device.  -->
-    <!-- KEPT: test/app_compat/csuite and tools/tradefederation core - they -->
-    <!-- register the csuite_test / tradefed_* Soong module types that      -->
-    <!-- frameworks/base, art, platform_testing and tools/asuite .bp files  -->
-    <!-- use. Removing them breaks every build at blueprint analysis.       -->
-    <remove-project name="platform/cts" />
+    <!-- KEPT: cts, test/app_compat/csuite, test/mts, tools/tradefederation -->
+    <!-- core - they register the cts_defaults / mts-* / csuite_test /      -->
+    <!-- tradefed_* Soong modules that Android.bp files across              -->
+    <!-- frameworks/base, art, packages/modules and platform_testing        -->
+    <!-- reference. Removing them breaks every build at blueprint           -->
+    <!-- analysis. (cts is ~3 GB of the savings - it is NOT optional.)      -->
     <remove-project name="platform/test/dittosuite" />
     <remove-project name="platform/test/graphics" />
     <remove-project name="platform/test/robolectric-extensions" />
     <remove-project name="platform/test/mlts/benchmark" />
     <remove-project name="platform/test/mlts/models" />
     <remove-project name="platform/test/cts-root" />
-    <remove-project name="platform/test/mts" />
     <remove-project name="platform/test/suite_harness" />
     <remove-project name="platform/test/vts" />
     <remove-project name="platform/test/vts-testcase/hal" />
