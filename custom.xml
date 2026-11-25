@@ -35,11 +35,13 @@
              remote="eclipsex"
              revision="lineage-17.1" />
 
-    <!-- EclipseXROM common - repository is empty, commented out -->
-    <!-- <project name="common"
-             path="device/eclipsex/common"
+    <!-- EclipseXROM common - merged Manikineko userland: first-party app
+         suite, EclipseX Home launcher + OOBE, signed app store, branding,
+         debloat tooling. Ships the EclipseX product layer. -->
+    <project name="common"
+             path="vendor/eclipsex/common"
              remote="eclipsex"
-             revision="main" /> -->
+             revision="main" />
 
     <!-- Magisk fork -->
     <project name="magisk"

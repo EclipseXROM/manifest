@@ -23,10 +23,39 @@ for manual patching:
    ```
 
 `default.xml` automatically includes the topical manifests:
+- `debloat.xml` – strips Google/bloat projects from the synced tree (see below)
 - `graphene.xml` – privacy/GApps installer apps and reference frameworks from GrapheneOS
 - `evox.xml` – customization overlays and launcher pieces from EvolutionX
 - `security.xml` – CopperheadOS security patch references
 - `extras.xml` – Docker/Moby sources and future EclipseX components (launcher, theme packs, etc.)
+
+## EclipseX common (merged Manikineko userland)
+
+`custom.xml` syncs [`common`](https://github.com/EclipseXROM/common) to
+`vendor/eclipsex/common`. It carries the merged Manikineko userland: a
+plain-Java first-party app suite (browser, calendar, files, music, notes,
+recorder, radio, level, torch), the EclipseX Home launcher with a built-in
+OOBE setup wizard, a signed-catalog app store (+ backend), branding
+assets, and the debloat tooling. Wire it into a device with:
+
+```make
+$(call inherit-product, vendor/eclipsex/common/eclipsex.mk)
+```
+
+## Debloat / no-Google policy
+
+`debloat.xml` removes ~60 source projects via `<remove-project>`: Google
+search/ads surfaces (QuickSearchBox, AdServices, OnDevicePersonalization),
+stock apps the suite replaces (Browser2, Calendar, Gallery2, Music, ...),
+dev/demo leftovers, and TV/automotive form factors. A commented caveat
+group (Launcher3, DeskClock, Messaging, Stk, emulator device trees) can be
+enabled deliberately.
+
+Compatibility rule: anything that is an API surface stays — WebView, SAF,
+providers, telephony, all mainline modules except the ads pair. Apps keep
+working; we remove apps and telemetry, not the platform. A second,
+product-level strip (`config/debloat.mk`) and an on-device runtime tool
+(`debloat/debloat.sh`) ship inside `common`.
 
 Update branch names in each file to match the upstream revision you intend to track (Android 17 once available). By default they point to `main`/`master` to guarantee the clone works even before retagging to the target release.
 

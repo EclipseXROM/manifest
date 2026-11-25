@@ -6,6 +6,9 @@
     <!-- Include official AOSP manifest first as base -->
     <include name="aosp.xml" />
 
+    <!-- Strip Google/bloat projects from the synced tree -->
+    <include name="debloat.xml" />
+
     <!-- Then include EclipseXROM extras -->
     <include name="security.xml" />
     <include name="graphene.xml" />
