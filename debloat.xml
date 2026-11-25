@@ -4,13 +4,15 @@
     <!-- EclipseX debloat layer                                             -->
     <!--                                                                    -->
     <!-- Removes Google-branded surfaces, duplicated stock apps, dev/demo   -->
-    <!-- leftovers and non-phone form factors from the synced tree.         -->
+    <!-- leftovers, non-phone form factors and the multi-GB sync heaps      -->
+    <!-- (kernel images, emulator/VM stacks, CTS/VTS test infra, VNDK      -->
+    <!-- snapshots, SDK/NDK prebuilts) from the synced tree.                -->
     <!--                                                                    -->
     <!-- Compatibility contract: everything that exposes an API surface     -->
     <!-- other apps rely on STAYS - WebView, DocumentsUI (SAF), KeyChain,   -->
-    <!-- providers, telephony stack, SecureElement, and every               -->
-    <!-- packages/modules/* runtime module. We remove apps and              -->
-    <!-- telemetry, never the platform.                                     -->
+    <!-- providers, telephony, SecureElement, and every                     -->
+    <!-- packages/modules/* runtime module. We remove apps, telemetry and   -->
+    <!-- dead weight, never the platform.                                   -->
     <!--                                                                    -->
     <!-- The product-level strip lives in vendor/eclipsex/common            -->
     <!-- (config/debloat.mk); the on-device runtime strip tool is           -->
@@ -19,12 +21,14 @@
 
 
     <!-- ==== Google ads / telemetry ======================================= -->
-    <!-- Privacy Sandbox / ads infrastructure. Apps calling Topics/Fledge   -->
-    <!-- APIs degrade gracefully to "service unavailable". Products must    -->
-    <!-- not list com.android.adservices / com.android.ondevicepersonalization
-         in PRODUCT_PACKAGES (config/debloat.mk filters them).              -->
+    <!-- Privacy Sandbox / ads infrastructure, source + module SDK stubs.   -->
+    <!-- Apps calling Topics/Fledge APIs degrade to "service unavailable".  -->
+    <!-- config/debloat.mk also filters the APEX names out of               -->
+    <!-- PRODUCT_PACKAGES so inherited product mks cannot reference them.   -->
     <remove-project name="platform/packages/modules/AdServices" />
     <remove-project name="platform/packages/modules/OnDevicePersonalization" />
+    <remove-project name="platform/prebuilts/module_sdk/AdServices" />
+    <remove-project name="platform/prebuilts/module_sdk/OnDevicePersonalization" />
 
     <!-- ==== Google search surface ======================================== -->
     <remove-project name="platform/packages/apps/QuickSearchBox" />
@@ -38,6 +42,30 @@
     <remove-project name="platform/packages/apps/MusicFX" />
     <remove-project name="platform/packages/apps/HTMLViewer" />
     <remove-project name="platform/packages/apps/LegacyCamera" />
+    <remove-project name="platform/packages/apps/AvatarPicker" />
+
+    <!-- ==== Stock launcher + theming (replaced by EclipseXHome) ========== -->
+    <remove-project name="platform/packages/apps/Launcher3" />
+    <remove-project name="platform/packages/apps/ThemePicker" />
+    <remove-project name="platform/packages/apps/WallpaperPicker2" />
+
+    <!-- ==== Remaining stock/utility bloat ================================ -->
+    <!-- Each drops a named user feature - deliberately stripped:
+         DeskClock (no suite clock app yet), Messaging (default SMS role;
+         SMS itself keeps working - install an SMS app from the Store),
+         Stk (SIM toolkit UI), EmergencyInfo, SafetyRegulatoryInfo
+         (regulatory-marks screen - check regional compliance needs),
+         SettingsIntelligence (settings suggestions), PrivateSpace,
+         QuickAccessWallet (Google Pay slot), ImsServiceEntitlement.       -->
+    <remove-project name="platform/packages/apps/DeskClock" />
+    <remove-project name="platform/packages/apps/Messaging" />
+    <remove-project name="platform/packages/apps/Stk" />
+    <remove-project name="platform/packages/apps/EmergencyInfo" />
+    <remove-project name="platform/packages/apps/SafetyRegulatoryInfo" />
+    <remove-project name="platform/packages/apps/SettingsIntelligence" />
+    <remove-project name="platform/packages/apps/PrivateSpace" />
+    <remove-project name="platform/packages/apps/QuickAccessWallet" />
+    <remove-project name="platform/packages/apps/ImsServiceEntitlement" />
 
     <!-- ==== Dev / demo / test leftovers ================================== -->
     <remove-project name="platform/packages/apps/DevCamera" />
@@ -92,45 +120,115 @@
     <remove-project name="platform/packages/apps/Car/Templates" />
     <remove-project name="platform/packages/apps/Car/VoiceControl" />
     <remove-project name="device/google_car" />
+    <remove-project name="device/generic/car" />
 
-    <!-- ================================================================== -->
-    <!-- CAVEAT GROUP - uncomment deliberately, each line drops a named     -->
-    <!-- feature or can break a build target:                               -->
-    <!--                                                                    -->
-    <!--  Launcher3       stock launcher. Only after EclipseXHome is        -->
-    <!--                    verified as default HOME on your target.        -->
-    <!--                    ThemePicker/WallpaperPicker2 depend on it.      -->
-    <!--  DeskClock       no suite replacement yet (no clock/alarm app).    -->
-    <!--  Messaging       holds the default-SMS-app role; needed if no      -->
-    <!--                    other SMS app ships (SMS compat).               -->
-    <!--  Stk             SIM Toolkit; some carrier certifications want it. -->
-    <!--  EmergencyInfo   emergency medical info screen (Settings surface). -->
-    <!--  SafetyRegulatoryInfo  regulatory marks; regional compliance.      -->
-    <!--  SettingsIntelligence  settings search suggestions.                -->
-    <!--  PrivateSpace    Android 15+ private-space feature.                -->
-    <!--  QuickAccessWallet   lock-screen wallet slot (Google Pay hook).    -->
-    <!--  ImsServiceEntitlement carrier entitlement/self-provisioning UI.   -->
-    <!--  cuttlefish* / trout / contexthub / etm                            -->
-    <!--                    needed for the Android emulator targets.        -->
-    <!-- ================================================================== -->
-    <!--
-    <remove-project name="platform/packages/apps/Launcher3" />
-    <remove-project name="platform/packages/apps/ThemePicker" />
-    <remove-project name="platform/packages/apps/WallpaperPicker2" />
-    <remove-project name="platform/packages/apps/DeskClock" />
-    <remove-project name="platform/packages/apps/Messaging" />
-    <remove-project name="platform/packages/apps/Stk" />
-    <remove-project name="platform/packages/apps/EmergencyInfo" />
-    <remove-project name="platform/packages/apps/SafetyRegulatoryInfo" />
-    <remove-project name="platform/packages/apps/SettingsIntelligence" />
-    <remove-project name="platform/packages/apps/PrivateSpace" />
-    <remove-project name="platform/packages/apps/QuickAccessWallet" />
-    <remove-project name="platform/packages/apps/ImsServiceEntitlement" />
+    <!-- ==== Emulator / virtual-device stack (~3 GB) ====================== -->
+    <!-- No emulator images, no VM device trees, no emulator HALs.          -->
+    <remove-project name="platform/prebuilts/android-emulator" />
+    <remove-project name="platform/prebuilts/qemu-kernel" />
+    <remove-project name="platform/hardware/google/aemu" />
+    <remove-project name="platform/hardware/google/gfxstream" />
     <remove-project name="device/google/cuttlefish" />
     <remove-project name="device/google/cuttlefish_prebuilts" />
     <remove-project name="device/google/cuttlefish_vmm" />
     <remove-project name="device/google/trout" />
     <remove-project name="device/google/contexthub" />
     <remove-project name="device/google/common/etm" />
-    -->
+
+    <!-- ==== Kernel prebuilt images (~3 GB) =============================== -->
+    <!-- GKI/prebuilt kernel images for generic targets only. EclipseX      -->
+    <!-- device trees carry their own kernels; these are dead weight.       -->
+    <remove-project name="kernel/prebuilts/6.1/arm64" />
+    <remove-project name="kernel/prebuilts/6.1/x86-64" />
+    <remove-project name="kernel/prebuilts/6.6/arm64" />
+    <remove-project name="kernel/prebuilts/6.6/x86-64" />
+    <remove-project name="kernel/prebuilts/6.12/arm64" />
+    <remove-project name="kernel/prebuilts/6.12/x86-64" />
+    <remove-project name="kernel/prebuilts/mainline/arm64" />
+    <remove-project name="kernel/prebuilts/mainline/x86-64" />
+    <remove-project name="kernel/prebuilts/common-modules/trusty/6.6/arm64" />
+    <remove-project name="kernel/prebuilts/common-modules/trusty/6.12/arm64" />
+    <remove-project name="kernel/prebuilts/common-modules/virtual-device/6.1/arm64" />
+    <remove-project name="kernel/prebuilts/common-modules/virtual-device/6.1/x86-64" />
+    <remove-project name="kernel/prebuilts/common-modules/virtual-device/6.6/arm64" />
+    <remove-project name="kernel/prebuilts/common-modules/virtual-device/6.6/x86-64" />
+    <remove-project name="kernel/prebuilts/common-modules/virtual-device/6.12/arm64" />
+    <remove-project name="kernel/prebuilts/common-modules/virtual-device/6.12/x86-64" />
+    <remove-project name="kernel/prebuilts/common-modules/virtual-device/mainline/arm64" />
+    <remove-project name="kernel/prebuilts/common-modules/virtual-device/mainline/x86-64" />
+    <remove-project name="kernel/tests" />
+    <remove-project name="kernel/configs" />
+
+    <!-- ==== CTS / VTS / Tradefed test infrastructure (~4 GB) ============= -->
+    <!-- Certification test suites - not part of the ROM, not needed to     -->
+    <!-- build or run it. Re-add temporarily if you ever certify a device.  -->
+    <remove-project name="platform/cts" />
+    <remove-project name="platform/test/dittosuite" />
+    <remove-project name="platform/test/graphics" />
+    <remove-project name="platform/test/robolectric-extensions" />
+    <remove-project name="platform/test/mlts/benchmark" />
+    <remove-project name="platform/test/mlts/models" />
+    <remove-project name="platform/test/app_compat/csuite" />
+    <remove-project name="platform/test/cts-root" />
+    <remove-project name="platform/test/mts" />
+    <remove-project name="platform/test/suite_harness" />
+    <remove-project name="platform/test/vts" />
+    <remove-project name="platform/test/vts-testcase/hal" />
+    <remove-project name="platform/test/vts-testcase/kernel" />
+    <remove-project name="platform/test/vts-testcase/nbu" />
+    <remove-project name="platform/test/vts-testcase/performance" />
+    <remove-project name="platform/test/vts-testcase/security" />
+    <remove-project name="platform/test/vts-testcase/vndk" />
+    <remove-project name="platform/test/catbox" />
+    <remove-project name="platform/tools/tradefederation" />
+    <remove-project name="platform/tools/tradefederation/contrib" />
+    <remove-project name="platform/tools/tradefederation/prebuilts" />
+    <remove-project name="platform/prebuilts/asuite" />
+
+    <!-- ==== VNDK snapshots (~1 GB) ======================================= -->
+    <!-- Only needed to run new system images against OLD vendor images.    -->
+    <!-- EclipseX builds vendor from source - dead weight.                  -->
+    <remove-project name="platform/prebuilts/vndk/v31" />
+    <remove-project name="platform/prebuilts/vndk/v32" />
+    <remove-project name="platform/prebuilts/vndk/v33" />
+    <remove-project name="platform/prebuilts/vndk/v34" />
+
+    <!-- ==== SDK / NDK prebuilts (~2-3 GB) ================================ -->
+    <!-- Only needed to build the SDK/NDK itself, not a device image.       -->
+    <remove-project name="platform/prebuilts/sdk" />
+    <remove-project name="platform/prebuilts/ndk" />
+
+    <!-- ==== Dev-board / generic reference targets ======================== -->
+    <!-- Amlogic/Linaro dev boards + generic aosp_* products (kept:         -->
+    <!-- device/generic/common - android-x86 base used by uefix64pc - and   -->
+    <!-- device/generic/goldfish|trusty, pulled in by that base).           -->
+    <remove-project name="device/amlogic/yukawa" />
+    <remove-project name="device/amlogic/yukawa-kernel" />
+    <remove-project name="device/linaro/dragonboard" />
+    <remove-project name="device/linaro/dragonboard-kernel" />
+    <remove-project name="device/linaro/hikey" />
+    <remove-project name="device/linaro/hikey-kernel" />
+    <remove-project name="device/generic/art" />
+    <remove-project name="device/generic/arm64" />
+    <remove-project name="device/generic/armv7-a-neon" />
+    <remove-project name="device/generic/x86" />
+    <remove-project name="device/generic/x86_64" />
+
+    <!-- ================================================================== -->
+    <!-- KEPT ON PURPOSE (do not remove - API/compat surface):              -->
+    <!--   external/chromium-webview + frameworks webview  WebView API      -->
+    <!--   packages/apps/DocumentsUI                       SAF picker       -->
+    <!--   KeyChain, CertInstaller                         credential APIs  -->
+    <!--   ManagedProvisioning                             provisioning       -->
+    <!--   CarrierConfig, CellBroadcastReceiver            carrier/reg.     -->
+    <!--   Contacts, ContactsPicker, providers/*             PIM APIs       -->
+    <!--   Dialer, BasicSmsReceiver, PhoneCommon             telephony      -->
+    <!--   SecureElement, Settings, StorageManager, SystemUIGo              -->
+    <!--   CaptivePortalLogin, Provision                     boot/setup     -->
+    <!--   all packages/modules/* except the ads pair      API surface      -->
+    <!--   prebuilts/module_sdk/* (rest)                   module SDKs      -->
+    <!--   device/generic/common|goldfish|trusty           android-x86 base -->
+    <!--   prebuilts/clang|rust|go|jdk|build-tools|misc|tools|r8|bazel etc. -->
+    <!--                                                     toolchain      -->
+    <!-- ================================================================== -->
 </manifest>
