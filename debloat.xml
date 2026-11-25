@@ -29,7 +29,9 @@
     <!-- the com.android.adservices APEX is filtered out of                 -->
     <!-- PRODUCT_PACKAGES by config/debloat.mk - source present, payload    -->
     <!-- never ships.                                                       -->
-    <remove-project name="platform/packages/modules/OnDevicePersonalization" />
+    <!-- KEPT (source): OnDevicePersonalization - adservices-service-core   -->
+    <!-- links its framework-* stubs. Same deal: source syncs, the          -->
+    <!-- com.android.ondevicepersonalization APEX is filtered out.          -->
     <remove-project name="platform/prebuilts/module_sdk/AdServices" />
     <remove-project name="platform/prebuilts/module_sdk/OnDevicePersonalization" />
 
@@ -84,7 +86,9 @@
     <remove-project name="platform/packages/apps/SpareParts" />
     <remove-project name="platform/packages/apps/Tag" />
     <remove-project name="platform/packages/apps/Test/connectivity" />
-    <remove-project name="platform/packages/apps/Traceur" />
+    <!-- KEPT (source): packages/apps/Traceur - SystemUI-core links        -->
+    <!-- TraceurCommon + Traceur-res. The Traceur APK stays filtered out   -->
+    <!-- of PRODUCT_PACKAGES by config/debloat.mk.                         -->
     <remove-project name="platform/packages/apps/UniversalMediaPlayer" />
     <remove-project name="platform/developers/build" />
     <remove-project name="platform/developers/samples/android" />
