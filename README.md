@@ -42,14 +42,18 @@ assets, and the debloat tooling. Wire it into a device with:
 $(call inherit-product, vendor/eclipsex/common/eclipsex.mk)
 ```
 
+All org device trees (bluejay, angler, starlte, crownlte, gracerlte,
+uefix64pc) already carry this hook in their product makefiles.
+
 ## Debloat / no-Google policy
 
-`debloat.xml` removes ~60 source projects via `<remove-project>`: Google
+`debloat.xml` removes ~145 source projects via `<remove-project>`: Google
 search/ads surfaces (QuickSearchBox, AdServices, OnDevicePersonalization),
-stock apps the suite replaces (Browser2, Calendar, Gallery2, Music, ...),
-dev/demo leftovers, and TV/automotive form factors. A commented caveat
-group (Launcher3, DeskClock, Messaging, Stk, emulator device trees) can be
-enabled deliberately.
+stock apps the suite replaces (Browser2, Calendar, Gallery2, Music,
+Launcher3, ...), dev/demo leftovers, TV/automotive form factors, and the
+multi-GB sync heaps — `kernel/prebuilts/*`, the emulator/VM stack
+(cuttlefish, qemu-kernel, aemu, gfxstream), CTS/VTS/Tradefed test infra,
+VNDK snapshots, and `prebuilts/sdk`+`ndk`. Roughly 10+ GB saved per sync.
 
 Compatibility rule: anything that is an API surface stays — WebView, SAF,
 providers, telephony, all mainline modules except the ads pair. Apps keep
