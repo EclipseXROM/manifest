@@ -93,6 +93,8 @@
     <remove-project name="device/google/atv" />
 
     <!-- ==== Automotive (AAOS) form factor ================================ -->
+    <!-- Car/systemlibs is KEPT - it provides car-ui-lib, used by           -->
+    <!-- PermissionController and frameworks/opt/car setupwizard.           -->
     <remove-project name="platform/packages/apps/Car/CalendarPrebuilt" />
     <remove-project name="platform/packages/apps/Car/Cluster" />
     <remove-project name="platform/packages/apps/Car/DataSubscriptionReference" />
@@ -113,7 +115,6 @@
     <remove-project name="platform/packages/apps/Car/RotaryImePrebuilt" />
     <remove-project name="platform/packages/apps/Car/Settings" />
     <remove-project name="platform/packages/apps/Car/SettingsIntelligence" />
-    <remove-project name="platform/packages/apps/Car/systemlibs" />
     <remove-project name="platform/packages/apps/Car/SystemUI" />
     <remove-project name="platform/packages/apps/Car/SystemUpdater" />
     <remove-project name="platform/packages/apps/Car/Templates" />
@@ -159,19 +160,17 @@
     <!-- ==== CTS / VTS / Tradefed test infrastructure (~4 GB) ============= -->
     <!-- Certification test suites - not part of the ROM, not needed to     -->
     <!-- build or run it. Re-add temporarily if you ever certify a device.  -->
-    <!-- KEPT: cts, test/app_compat/csuite, test/mts, tools/tradefederation -->
-    <!-- core - they register the cts_defaults / mts-* / csuite_test /      -->
-    <!-- tradefed_* Soong modules that Android.bp files across              -->
-    <!-- frameworks/base, art, packages/modules and platform_testing        -->
-    <!-- reference. Removing them breaks every build at blueprint           -->
-    <!-- analysis. (cts is ~3 GB of the savings - it is NOT optional.)      -->
+    <!-- KEPT: cts, csuite, mts, vts, suite_harness, tradefederation core - -->
+    <!-- they register the cts_defaults / mts-* / csuite_test / vts_* /     -->
+    <!-- suite_harness / tradefed_* Soong modules that Android.bp files     -->
+    <!-- across frameworks/base, art, packages/modules, hardware/interfaces -->
+    <!-- and platform_testing reference. Removing them breaks every build   -->
+    <!-- at blueprint analysis. (cts+test repos are ~4 GB - NOT optional.)  -->
     <remove-project name="platform/test/dittosuite" />
     <remove-project name="platform/test/graphics" />
     <remove-project name="platform/test/mlts/benchmark" />
     <remove-project name="platform/test/mlts/models" />
     <remove-project name="platform/test/cts-root" />
-    <remove-project name="platform/test/suite_harness" />
-    <remove-project name="platform/test/vts" />
     <remove-project name="platform/test/vts-testcase/hal" />
     <remove-project name="platform/test/vts-testcase/kernel" />
     <remove-project name="platform/test/vts-testcase/nbu" />
