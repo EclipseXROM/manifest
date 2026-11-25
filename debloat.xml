@@ -99,7 +99,9 @@
 
     <!-- ==== Android TV form factor ======================================= -->
     <remove-project name="platform/packages/apps/TV" />
-    <remove-project name="platform/packages/apps/TvSettings" />
+    <!-- KEPT (source): TvSettings defines TvSettingsAPI, referenced by     -->
+    <!-- cts/tests/atv CtsSettingsAPITestCases. The TvSettings APK stays    -->
+    <!-- filtered out of PRODUCT_PACKAGES by config/debloat.mk.             -->
     <remove-project name="platform/packages/apps/TvSystemUI" />
     <remove-project name="platform/packages/apps/TvFeedbackConsent" />
     <remove-project name="device/google/atv" />
@@ -107,31 +109,21 @@
     <!-- ==== Automotive (AAOS) form factor ================================ -->
     <!-- Car/systemlibs is KEPT - it provides car-ui-lib, used by           -->
     <!-- PermissionController and frameworks/opt/car setupwizard.           -->
+    <!--                                                                  -->
+    <!-- All Car/* SOURCE repos are kept: the suite is one interlocked lib  -->
+    <!-- web (SystemUI->Notification+Launcher/docklib, Launcher->systemlibs,-->
+    <!-- services/Car->Launcher+Notification, cts/platform_testing->Settings-->
+    <!-- flags). Removing any of them breaks blueprint analysis. The car    -->
+    <!-- payloads stay out of images via config/debloat.mk's package filter.-->
+    <!-- Only the *Prebuilt repos (bundled binary APK blobs, nothing links  -->
+    <!-- against them) are removed - that's where the actual size win is.   -->
     <remove-project name="platform/packages/apps/Car/CalendarPrebuilt" />
-    <remove-project name="platform/packages/apps/Car/Cluster" />
-    <remove-project name="platform/packages/apps/Car/DataSubscriptionReference" />
-    <remove-project name="platform/packages/apps/Car/DebuggingRestrictionController" />
     <remove-project name="platform/packages/apps/Car/DialerPrebuilt" />
     <remove-project name="platform/packages/apps/Car/DriverUIPrebuilt" />
-    <remove-project name="platform/packages/apps/Car/LatinIME" />
-    <remove-project name="platform/packages/apps/Car/Launcher" />
-    <remove-project name="platform/packages/apps/Car/LinkViewer" />
-    <remove-project name="platform/packages/apps/Car/LocalMediaPlayer" />
     <remove-project name="platform/packages/apps/Car/MediaPrebuilt" />
     <remove-project name="platform/packages/apps/Car/MessengerPrebuilt" />
-    <remove-project name="platform/packages/apps/Car/Notification" />
-    <remove-project name="platform/packages/apps/Car/Provision" />
     <remove-project name="platform/packages/apps/Car/RadioPrebuilt" />
-    <remove-project name="platform/packages/apps/Car/References" />
-    <remove-project name="platform/packages/apps/Car/RotaryController" />
     <remove-project name="platform/packages/apps/Car/RotaryImePrebuilt" />
-    <remove-project name="platform/packages/apps/Car/Settings" />
-    <remove-project name="platform/packages/apps/Car/SettingsIntelligence" />
-    <!-- KEPT: Car/SystemUI defines CarSystemUI-core + systemui_car aconfig -->
-    <!-- flags, required by Car/systemlibs and services/Car distant display.-->
-    <remove-project name="platform/packages/apps/Car/SystemUpdater" />
-    <remove-project name="platform/packages/apps/Car/Templates" />
-    <remove-project name="platform/packages/apps/Car/VoiceControl" />
     <remove-project name="device/google_car" />
     <remove-project name="device/generic/car" />
 
